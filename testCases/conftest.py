@@ -23,3 +23,13 @@ def setup(request):
 # def browser(request):
 #     print("get browser type")
 #     return request.config.getoption("--browser")
+
+def pytest_configure(config):
+    config._metadata['Project Name'] = "Commerce"
+    config._metadata['Module Name'] = 'Customers'
+    config._metadata['Tester'] = 'Hchen'
+
+@pytest.mark.optionalhook
+def pytest_metadata(metadata):
+    metadata.pop("java_home",None)
+    metadata.pop('plugins',None)
