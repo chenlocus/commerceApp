@@ -53,3 +53,23 @@
 2022-05-11 19:51:38,648 : INFO : ************Test_001_Login verify login page passed**************
 2022-05-11 19:51:40,713 : INFO : ************Test_001_Login verify login page**************
 2022-05-11 19:51:45,795 : INFO : ************Test_001_Login verify login page passed**************
+2022-05-11 20:30:02,699 : INFO : ************Test_001_Login **************
+2022-05-11 20:30:02,699 : INFO : ************verify home page title **************
+2022-05-11 20:30:02,700 : INFO : ************Test_001_Login verify login page**************
+2022-05-11 20:30:08,366 : INFO : ************Test_001_Login verify login page passed**************
+2022-05-11 20:30:08,630 : INFO : ************Test_001_Login passed **************
+2022-05-11 20:30:10,742 : INFO : ************Test_001_Login verify login page**************
+2022-05-11 20:30:11,094 : INFO : ************Test_001_Login **************
+2022-05-11 20:30:11,094 : INFO : ************verify home page title **************
+2022-05-11 20:30:13,415 : INFO : ************Test_001_Login passed **************
+2022-05-11 20:30:17,036 : INFO : ************Test_001_Login verify login page passed**************
+2022-05-12 20:22:48,464 : INFO : ************Test_001_Login **************
+2022-05-12 20:22:48,465 : INFO : ************verify home page title **************
+2022-05-12 20:22:48,468 : INFO : ************Test_001_Login verify login page**************
+2022-05-12 20:22:55,592 : INFO : ************Test_001_Login passed **************
+2022-05-12 20:22:57,043 : INFO : ************Test_001_Login verify login page passed**************
+2022-05-12 20:22:57,785 : INFO : ************Test_001_Login **************
+2022-05-12 20:22:57,785 : INFO : ************verify home page title **************
+2022-05-12 20:22:59,112 : INFO : ************Test_001_Login verify login page**************
+2022-05-12 20:23:00,061 : INFO : ************Test_001_Login passed **************
+2022-05-12 20:23:03,432 : INFO : ************Test_001_Login verify login page passed**************
