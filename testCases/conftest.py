@@ -1,7 +1,7 @@
 from selenium import webdriver
 import pytest
 
-@pytest.fixture(params=["chrome", "firefox"],scope="class")
+@pytest.fixture(params=["chrome","firefox"],scope="class")
 def setup(request):
     #print("browser=",browser)
     # if browser=="chrome":
