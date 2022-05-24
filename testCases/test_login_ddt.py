@@ -31,7 +31,6 @@ class Test_002_DDT_Login:
             time.sleep(5)
             act_title = self.lp.title
             exp_title = "Dashboard / nopCommerce administration"
-            self.lp.quit()
             if act_title == exp_title:
                 if self.exp == "Pass":
                     self.logger.info("************ pass**************")
@@ -48,11 +47,11 @@ class Test_002_DDT_Login:
                 else:
                     self.logger.info("************pass**************")
                     lst_status.append("Pass")
-
             if "Fail" not in lst_status:
                 self.logger.info("************Test_002_DDT_Login pass**************")
                 assert True
             else:
                 self.logger.info("************Test_002_DDT_Login fail**************")
                 assert False
+        self.lp.quit()
         self.logger.info("************End of Test_002_DDT_Login**************")
