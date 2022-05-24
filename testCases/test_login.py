@@ -5,8 +5,6 @@ from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 
 class Test_001_Login:
-
-    baseURL = ReadConfig.getApplicationURL()
     username = ReadConfig.getUseremail()
     password = ReadConfig.getPassword()
 
@@ -17,9 +15,10 @@ class Test_001_Login:
         self.logger.info('************Test_001_Login **************')
         self.logger.info('************verify home page title **************')
         self.driver = setup
-        self.driver.get(self.baseURL)
-        act_title = self.driver.title
-        self.driver.close()
+        self.lp = LoginPage(self.driver)
+        self.lp.go()
+        act_title = self.lp.title
+        self.lp.quit()
         if act_title == "Your store. Login":
             assert True
             self.logger.info("************Test_001_Login passed **************")
@@ -31,13 +30,13 @@ class Test_001_Login:
     def test_login(self,setup):
         self.logger.info("************Test_001_Login verify login page**************")
         self.driver = setup
-        self.driver.get(self.baseURL)
         self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        act_title = self.driver.title
-        self.driver.close()
+        self.lp.go()
+        self.lp.username_input.input_text(self.username)
+        self.lp.password_input.input_text(self.password)
+        self.lp.login_button.click()
+        act_title = self.lp.title
+        self.lp.quit()
         if act_title == "Dashboard / nopCommerce administration":
             assert True
             self.logger.info("************Test_001_Login verify login page passed**************")

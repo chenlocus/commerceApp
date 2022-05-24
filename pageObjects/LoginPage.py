@@ -1,26 +1,34 @@
 from selenium import webdriver
+from .BaseElement import BaseElement
+from .BasePage import BasePage
+from selenium.webdriver.common.by import By
+from utilities.readProperties import ReadConfig
 
-class LoginPage:
+class LoginPage(BasePage):
     textbox_username_id="Email"
     textbox_password_id="Password"
     button_login_xpath="//button[contains(text(),'Log in')]"
-    link_logout_linktext="Logout"
+    button_logout_xpath="//*[@id='navbarText']/ul/li/a[text()='Logout']"
+    url = ReadConfig.getApplicationURL()
 
-    def __init__(self,driver):
-        self.driver=driver
+    @property
+    def username_input(self):
+        locator = (By.ID,self.textbox_username_id)
+        return BaseElement(driver=self.driver, by=locator[0], value=locator[1])
+    @property
+    def password_input(self):
+        locator = (By.ID, self.textbox_password_id)
+        return BaseElement(driver=self.driver, by=locator[0], value=locator[1])
 
-    def setUserName(self,username):
-        self.driver.find_element_by_id(self.textbox_username_id).clear()
-        self.driver.find_element_by_id(self.textbox_username_id).send_keys(username)
+    @property
+    def login_button(self):
+        locator = (By.XPATH, self.button_login_xpath)
+        return BaseElement(driver=self.driver, by=locator[0], value=locator[1])
 
-    def setPassword(self,password):
-        self.driver.find_element_by_id(self.textbox_password_id).clear()
-        self.driver.find_element_by_id(self.textbox_password_id).send_keys(password)
+    @property
+    def logout_button(self):
+        locator = (By.XPATH, self.button_logout_xpath)
+        return BaseElement(driver=self.driver, by=locator[0], value=locator[1])
 
-    def clickLogin(self):
-        self.driver.find_element_by_xpath(self.button_login_xpath).click()
-
-    def clickLogout(self):
-        self.driver.find_element_by_link_text(self.link_logout_linktext).click()
 
 

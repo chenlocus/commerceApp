@@ -16,8 +16,8 @@ class Test_002_DDT_Login:
     def test_login_ddt(self,setup):
         self.logger.info("************Test_001_Login verify login page**************")
         self.driver = setup
-        self.driver.get(self.baseURL)
         self.lp = LoginPage(self.driver)
+        self.lp.go()
         self.rows = ExcelUtils.getRowCount(self.path,'Sheet1')
 
         lst_status = []
@@ -25,21 +25,21 @@ class Test_002_DDT_Login:
             self.user = ExcelUtils.readData(self.path,"Sheet1",r,1)
             self.password = ExcelUtils.readData(self.path, "Sheet1", r, 2)
             self.exp = ExcelUtils.readData(self.path, "Sheet1", r, 3)
-            self.lp.setUserName(self.user)
-            self.lp.setPassword(self.password)
-            self.lp.clickLogin()
+            self.lp.username_input.input_text(self.user)
+            self.lp.password_input.input_text(self.password)
+            self.lp.login_button.click()
             time.sleep(5)
-            act_title = self.driver.title
+            act_title = self.lp.title
             exp_title = "Dashboard / nopCommerce administration"
-            self.driver.close()
+            self.lp.quit()
             if act_title == exp_title:
                 if self.exp == "Pass":
                     self.logger.info("************ pass**************")
-                    self.lp.clickLogout()
+                    self.lp.logout_button.click()
                     lst_status.append("Pass")
                 else:
                     self.logger.info("************fail**************")
-                    self.lp.clickLogout()
+                    self.lp.logout_button.click()
                     lst_status.append("Fail")
             else:
                 if self.exp == "Pass":
